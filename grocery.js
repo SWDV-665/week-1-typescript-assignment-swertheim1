@@ -18,17 +18,26 @@ let groceries = [
     new Grocery('Dozen Eggs', 2, 1.79),
     new Grocery('Hamburger Meat (lbs)', 3, 1.69)
 ];
-let ul = document.getElementById("grocery-list");
+let table = document.getElementById("grocery-table");
 // Iterate over the groceries array
 for (let i in groceries) {
     // Get the current grocery object
     let grocery = groceries[i];
     // Calculate the total cost for this grocery item
     let totalCost = grocery.quantity * grocery.item_price;
-    // Create a new p element
-    let p = document.createElement("p");
-    // Set the text of the p element to the grocery item and total cost
-    p.textContent = "Quantity: " + grocery.quantity + " ---------- " + grocery.item + " ---------- " + "Total Cost:  $" + totalCost.toFixed(2);
-    // Append the p element to the ul element
-    ul.appendChild(p);
+    // Create a new row and cells
+    let row = document.createElement("tr");
+    let cellItem = document.createElement("td");
+    let cellQuantity = document.createElement("td");
+    let cellCost = document.createElement("td");
+    // Set the text of the cells
+    cellItem.textContent = grocery.item;
+    cellQuantity.textContent = String(grocery.quantity);
+    cellCost.textContent = "$" + totalCost.toFixed(2);
+    // Append the cells to the row
+    row.appendChild(cellItem);
+    row.appendChild(cellQuantity);
+    row.appendChild(cellCost);
+    // Append the row to the table
+    table.appendChild(row);
 }
