@@ -18,17 +18,17 @@ let groceries = [
     new Grocery('Dozen Eggs', 2, 1.79),
     new Grocery('Hamburger Meat (lbs)', 3, 1.69)
 ];
-var ul = document.getElementById("grocery-list");
+let ul = document.getElementById("grocery-list");
 // Iterate over the groceries array
-for (var i in groceries) {
+for (let i in groceries) {
     // Get the current grocery object
-    var grocery = groceries[i];
+    let grocery = groceries[i];
     // Calculate the total cost for this grocery item
-    var totalCost = grocery.quantity * grocery.item_price;
-    // Create a new li element
-    var li = document.createElement("p");
-    // Set the text of the li element to the grocery item and total cost
-    li.textContent = "Quantity: " + grocery.quantity + " ---------- " + grocery.item + " ---------- " + "Total Cost:  $" + totalCost.toFixed(2);
-    // Append the li element to the ul element
-    ul.appendChild(li);
+    let totalCost = grocery.quantity * grocery.item_price;
+    // Create a new p element
+    let p = document.createElement("p");
+    // Set the text of the p element to the grocery item and total cost
+    p.textContent = "Quantity: " + grocery.quantity + " ---------- " + grocery.item + " ---------- " + "Total Cost:  $" + totalCost.toFixed(2);
+    // Append the p element to the ul element
+    ul.appendChild(p);
 }
